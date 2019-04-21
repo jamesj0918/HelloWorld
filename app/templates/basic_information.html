@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <title>project <Hello World></title>
+    <style media="screen">
+
+    .music_submit
+    {
+      position: absolute;
+      margin-top: 210px;
+      margin-left: 120px;
+    }
+    #page-wrapper {
+      width: 1080px;
+      height: 550px;
+      background-image: url("{% static "background.png" %}");
+    }
+
+    #section {
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 300px;
+      width: 870px;
+      height: 525px;
+      border-radius: 20px;
+      float: left;
+      background-image: url("{% static "inner-background.png" %}");
+    }
+
+    #aside {
+      position: absolute;
+      margin-top: 10px;
+      margin-left: 895px;
+      margin-right: 10px;
+      width: 170px;
+      height: 240px;
+      background-color: white;
+    }
+
+    #header {
+      margin-top: 12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 770px;
+      height: 20px;
+    }
+    #sub-content {
+      margin-top: 6px;
+      margin-left: 15px;
+      margin-right: 550px;
+      width: 200px;
+      height: 465px;
+      border-radius: 10px;
+      display: block;
+      float: left;
+      background-color: white;
+      position: relative;
+    }
+
+    #article {
+      position: absolute;
+      margin-top: 6px;
+      margin-left: 230px;
+      margin-right: 150px;
+      width: 550px;
+      height: 465px;
+      border-radius: 10px;
+      float: left;
+      background-color: white;
+    }
+
+    #main-navigation {
+      position: absolute;
+      margin-top: 30px;
+      margin-left: 785px;
+      margin-right: 10px;
+      width: 70px;
+      height: 246px;
+      background-image: url("{% static "navi.png" %}");
+    }
+
+    .menu-item {
+      margin-left: 0px;
+      margin-right: 0px;
+      text-align: center;
+      line-height: 40px;
+      margin: 0px;
+      height: 40px;
+      border: solid 0.5px;
+      border-color: #fff5d5;
+      display: block;
+    }
+
+    #music-image {
+      margin-left: 10px;
+      margin-top: 10px;
+      position: absolute;
+    }
+
+    #music-list {
+      position: absolute;
+      margin-left: 10px;
+      margin-top: 215px;
+      width: 100px;
+    }
+
+    #music {
+      margin-left: 10px;
+      position: absolute;
+      margin-top: 170px;
+      width: 145px;
+      border: solid;
+    }
+
+    a {
+      text-decoration: none;
+      border-radius: 0px 5px 5px 0px;
+    }
+    .today {
+      margin-top: 10px;
+      margin-left: 45px;
+      width: 110px;
+      height: 12px;
+      text-align: center;
+      font-size: 10px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: gray;
+      position: absolute;
+    }
+
+    .today>p {
+      display: inline;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .logout {
+      float: right;
+      height: 18px;
+      margin-top: 1px;
+      margin-right: 4px;
+      font-size: 7px;
+      font-family: 돋움;
+    }
+
+    .nickname {
+      float: left;
+      padding-left: 220px;
+      width: 360px;
+      height: 20px;
+    }
+
+    .nickname>h2 {
+      display: inline;
+      font-size: 16px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: #113377;
+    }
+
+    #setting-menu {
+      width: 160px; margin: 0 auto;
+    }
+
+    #setting-menu-header {
+      width: 160px; padding: 20px 0 5px 0;
+      border-bottom-width: thin;
+      border-bottom-style: solid;
+      text-align: center;
+      font-size: 18px;
+      color: lightblue;
+      border-color: #808080;
+    }
+
+    #setting-main-menu {
+      width:160px;
+      height: 330px;
+      margin: 10px 0;
+
+    }
+
+    #setting-menu-title {
+      display: block;
+      font-size: 16px;
+      color: blue;
+      height: 20px;
+      margin: 12px 0;
+    }
+
+    .setting-menu-item {
+      display: block;
+      font-size:15px;
+      color: lightblue;
+      height:20px;
+      margin: 5px 0;
+    }
+
+    #basic-information-setting-list {
+      color: darkblue;
+    }
+
+    #whole-basic-information-setting {
+      width: 500px; margin: 0 auto;
+      margin-top: 30px;
+      height: 405px;
+      overflow-y: scroll;
+    }
+
+    #gender-title {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    #gender-content {
+      border-top-style: solid;
+      border-top-width: thin;
+      border-top-color: #808080;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+      background-color: rgb(245,245,245);
+    }
+
+    .gender-list {
+      margin: 10px 0 10px 10px;
+      display: inline-block;
+      font-size: 15px;
+    }
+
+    .basic-information-submit-button {
+      float: right;
+      margin-top: 8px;
+      margin-right: 10px;
+    }
+
+    #submit-gender-button {
+      height: 24px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    #cancel-input-gender-button{
+      font-size: 12px;
+      height: 24px;
+    }
+
+    #blood-type {
+      margin-top: 40px;
+    }
+
+    #blood-type-title {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    #blood-type-content {
+      border-top-style: solid;
+      border-top-width: thin;
+      border-top-color: #808080;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+      background-color: rgb(245,245,245);
+    }
+
+    .blood-type-list {
+      display: inline-block;
+      margin: 10px;
+      font-size: 15px;
+    }
+
+    #submit-blood-type-button {
+      height: 24px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    #cancel-input-blood-type-button {
+      font-size: 12px;
+      height: 24px;
+    }
+
+    #age {
+      margin-top: 40px;
+    }
+
+    #age-title {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    #age-content {
+      border-top-style: solid;
+      border-top-width: thin;
+      border-top-color: #808080;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+      background-color: rgb(245,245,245);
+    }
+
+    .age-open,.age-dont-open {
+      display: inline-block;
+      margin: 10px;
+      font-size: 15px;
+    }
+
+    #input-age {
+      display: inline-block;
+      margin: 0 10px 10px 0;
+      font-size: 15px;
+    }
+
+    #input-user-age {
+      margin-left: 20px;
+      height: 13px;
+      width: 30px;
+    }
+
+    #submit-age-button {
+      height: 24px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    #cancel-input-age-button {
+      font-size: 12px;
+      height: 24px;
+    }
+
+    #birthday {
+      margin-top: 40px;
+    }
+
+    #birthday-title {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    #birthday-content {
+      border-top-style: solid;
+      border-top-width: thin;
+      border-top-color: #808080;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+      background-color: rgb(245,245,245);
+    }
+
+    #birthday-open,#birthday-dont-open {
+      display: inline-block;
+      margin: 10px;
+      font-size: 15px;
+    }
+
+    #select-birthday-year {
+      display: inline-block;
+      font-size: 15px;
+    }
+
+    #input-birthday-year {
+      margin-left:  20px;
+      height: 13px;
+      width: 40px;
+    }
+    #select-birthday-month {
+      display: inline-block;
+      font-size: 15px;
+    }
+
+    #select-birthday-day {
+      display: inline-block;
+      font-size: 15px;
+    }
+
+    #submit-birthday-button {
+      height: 24px;
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    #cancel-input-birthday-button {
+      font-size: 12px;
+      height: 24px;
+    }
+
+    #height,#weight,#phone_num {
+      margin-top: 40px;
+    }
+
+    #weight-title,#height-title,#phone-num-title {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    #height-content,#weight-content,#phone-content {
+      border-top-style: solid;
+      border-top-width: thin;
+      border-top-color: #808080;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+      background-color: rgb(245,245,245);
+    }
+
+    .height-dont-open,.weight-dont-open,.phone-num-dont-open {
+      display: inline-block;
+      margin: 10px;
+      font-size: 15px;
+    }
+
+    #input-height,#input-weight,#input-phone-num {
+      display: inline-block;
+          margin: 0 10px 10px 0;
+          font-size: 15px;
+    }
+
+    #input-user-height,#input-user-weight{
+      margin-left: 20px;
+          height: 13px;
+          width: 30px;
+    }
+    #input-user-phone-num
+    {
+      margin-left: 20px;
+          height: 13px;
+          width: 120px;
+    }
+
+    #submit-height-button,#submit-weight-button,#submit-phone-num-button {
+      height: 24px;
+          font-size: 12px;
+          margin-right: 5px;
+    }
+    #cancel-height-button,#cancel-weight-button,#cancel-phone-num-button {
+      font-size: 12px;
+          height: 24px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <section id="section">
+        <header id="header">
+          <div class="today">
+          <a href="/home/?user_name={{request.user.username}}">HOME</a>
+        </div>
+          <form action="/logout/" method="POST">
+            {% csrf_token %}
+              <input type="hidden" name="">
+              <button class="logout" type="submit" name="">로그아웃</button><!--로그아웃 버튼-->
+            </form>
+          <div class="nickname">
+            <h2>{{request.GET.user_name}}님의 미니홈피</h2><!--미니홈피이름-->
+          </div>
+        </header>
+        <div id="sub-content">
+          <div id=setting-menu>
+            <div id=setting-menu-header>MANAGER</div>
+            <div id="setting-main-menu"><!--관리 메뉴-->
+              <div id="setting-menu-title"><img src="https://placehold.it/18x18" class="setting-overview-icon"/>미니홈피 관리</div>
+              <a href="/setting/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="home-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>홈 설정</a>
+              <a href="/basic_info/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="basic-information-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>기본정보</a>
+            </div>
+          </div>
+        </div>
+        <article id="article">
+          <div id="whole-basic-information-setting">
+            <div id="gender"><!--성별 설정-->
+              <div id="gender-title"><img src="https://placehold.it/10x10"/>성별</div>
+              <div id="gender-content">
+                <form method="POST" action="/add_gender/">
+                  {% csrf_token %}
+                  <div class="gender-list">
+                    <input id="man" type="radio" name="gender" value="남자"/><!--남자로 선택-->
+                    <label for="man" id="man-content">남자</label>
+                  </div>
+                  <div class="gender-list">
+                    <input id="woman" type="radio" name="gender" value="여자"/><!--여자로 선택-->
+                    <label for="woman" id="woman-content">여자</label>
+                  </div>
+                  <div class="basic-information-submit-button">
+                    <input type="submit" value="확인" name="user-gender" id="submit-gender-button"/><!--확인 버튼-->
+                    <input type="reset" value="취소" name="cancel-input-gender" id="cancel-input-gender-button"/><!--취소 버튼-->
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="blood-type"><!--혈액형 설정-->
+              <div id="blood-type-title"><img src="https://placehold.it/10x10"/>혈액형</div>
+              <div id="blood-type-content">
+                <form method="POST" action="/add_bloodtype/">
+                  {% csrf_token %}
+                  <div class="blood-type-list">
+                    <input type="radio" id="A" name="blood_type" value="A"><!--A형으로 선택-->
+                    <label for="A" id="A-content">A</label>
+                  </div>
+                  <div class="blood-type-list">
+                    <input type="radio" id="B" name="blood_type" value="B"><!--B형으로 선택-->
+                    <label for="B" id="B-content">B</label>
+                  </div>
+                  <div class="blood-type-list">
+                    <input type="radio" id="AB" name="blood_type" value="AB"><!--AB형으로 선택-->
+                    <label for="AB" id="AB-content">AB</label>
+                  </div>
+                  <div class="blood-type-list">
+                    <input type="radio" id="O" name="blood_type" value="O"><!--O형으로 선택-->
+                    <label for="O" id="O-content">O</label>
+                  </div>
+                  <div class="basic-information-submit-button">
+                    <input type="submit" value="확인" name="user-blood-type" id="submit-blood-type-button"/><!--혈액형 등록-->
+                    <input type="reset" value="취소" name="cancel-input-blood-type" id="cancel-input-blood-type-button"/><!--취소버튼-->
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="age"><!--나이 설정-->
+              <div id="age-title"><img src="https://placehold.it/10x10"/>나이</div>
+              <div id="age-content">
+                <form method="POST" action="/add_age/">
+                  {% csrf_token %}
+                <div id="input-age">
+                  <input type="text" name="age" id="input-user-age"/><!--나이 입력-->
+                  살
+                </div>
+                <div class="age-dont-open"><!--비공개로 설정-->
+                  <input type="radio" id="choose-not-to-open-age-list" name="age" value="나이는 숫자에 불과해요!">
+                  <label for="choose-not-to-open-age-list" id="age-dont-open-content">비공개</label>
+                </div>
+                <div class="basic-information-submit-button">
+                  <input type="submit" value="확인" name="user-age" id="submit-age-button"/><!--나이 등록 버튼-->
+                  <input type="reset" value="취소" name="cancel-input-age" id="cancel-input-age-button"/><!--취소 버튼-->
+                </div>
+                </form>
+              </div>
+            </div>
+            <div id="birthday"><!--생일 설정-->
+              <div id="birthday-title"><img src="https://placehold.it/10x10"/>생일</div>
+              <div id="birthday-content">
+                <form method="POST" action="/add_bday/">
+                  {% csrf_token %}
+                  <div id="select-birthday-year"><!--생일년도 입력-->
+                    <input type="text" name="bday_year" id="input-birthday-year"/>
+                    년
+                  </div>
+                  <div id="select-birthday-month"><!--생일 달 선택-->
+                    <select name="bday_month" id="birthday-month-list">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>월
+                  </div>
+                  <div id="select-birthday-day"><!--생일 일 선택-->
+                    <select id="birthday-day-list" name="bday_date">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                    </select>일
+                  </div>
+                  <div id="birthday-dont-open"><!--생일 비공개로 설정-->
+                    <input type="radio" id="choose-not-to-open-birthday-list"  name="bday_year" value="알려고 하지 마세요!"/>
+                    <label for="choose-not-to-open-birthday-list" id="birthday-dont-open-content">비공개</label>
+                  </div>
+                  <div class="basic-information-submit-button">
+                    <input type="submit" value="확인" name="user-birthday" id="submit-birthday-button"/><!--생일 등록-->
+                    <input type="reset" value="취소" name="cancel-input-birthday" id="cancel-input-birthday-button"/><!--취소 버튼-->
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="height"><!--키 설정-->
+              <div id="height-title"><img src="https://placehold.it/10x10"/>키</div>
+              <div id="height-content">
+                <form action="/add_height/" method="POST">
+                  {% csrf_token %}
+                  <div id="input-height"><!--키 입력-->
+                    <input type="text" name="height" id="input-user-height"/>cm
+                  </div>
+                  <div class="height-dont-open"><!--키 비공개로 설정-->
+                    <input type="radio" name="height" value="밝힐 수 없는 ?" name="height">
+                    <label for="choose-not-to-opne-height-list" id="height-dont-open-content"> 비공개 </label>
+                  </div>
+                  <div class="basic-information-submit-button">
+                  <input type="submit" value="확인" name="user-height" id="submit-height-button"/><!--키 등록-->
+                  <input type="reset" value="취소" name="cancel-input-height" id="cancel-input-height-button"/><!--취소 버튼-->
+                </div>
+                </form>
+              </div>
+            </div>
+            <div id="weight"><!--몸무게 설정-->
+              <div id="weight-title"><img src="https://placehold.it/10x10"/>몸무게</div>
+              <div id="weight-content">
+                <form action="/add_weight/" method="POST">
+                  {%csrf_token%}
+                  <div id="input-weight"><!--몸무게 입력-->
+                    <input type="text" name="weight" id="input-user-weight"/> kg
+                  </div>
+                  <div class="weight-dont-open"><!--몸무게 비공개로 설정-->
+                    <input type="radio" id="choose-not-to-open-weight-list" name="weight" value="님 생각보다 가벼우니 알려 하지 마세요!">
+                    <label for="choose-not-to-open-weight-list" id="weight-dont-open-content"> 비공개 </label>
+                  </div>
+                    <div class="basic-information-submit-button">
+                      <input type="submit" value="확인" name="user-weight" id="submit-height-button"/><!--몸무게 등록-->
+                      <input type="reset" value="취소" name="cancel-input-weight" id="cancel-input-height-button"/><!--취소 버튼-->
+                    </div>
+
+                </form>
+              </div>
+            </div>
+            <div id="phone_num"><!--전화번호 설정-->
+              <div id="phone-num-title"><img src="https://placehold.it/10x10"/>전화번호</div>
+              <div id="phone-content">
+                <form action="/add_phone_num/" method="POST">
+                  {% csrf_token %}
+                  <div id="input-phone-num"><!--전화번호 입력-->
+                    <input type="text" name="phone_num" id="input-user-phone-num"/>
+                  </div>
+                  <div class="phone-num-dont-open"><!--전화번호 비공개로 설정-->
+                    <input type="radio" id="choose-not-to-open-phone-num-list" name="phone_num" value="전화번호는 아무에게나 알려주지 않아요!">
+                    <label for="choose-not-to-open-phone-num-list" id="phone-num-dont-open-content">비공개</label>
+                  </div>
+                  <div class="basic-information-submit-button">
+                      <input type="submit" value="확인" name="user-phone-num" id="submit-phone-num-button"/><!--전화번호 등록-->
+                      <input type="reset" value="취소" name="cancel-input-phone-num" id="cancel-input-phone-num-button"/><!--취소 버튼-->
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+        <nav id="main-navigation"><!--메뉴창-->
+            <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+            <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+            <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+            <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+            <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+            <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+        </nav>
+      </section>
+      <aside id="aside">
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <img id="music-image" width="150px" height="150px" src="{% static "아이유-잠못드는밤.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "빅뱅-꽃길.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "이수-My Way.jpg" %}" alt="">
+        {% endif %}
+        <div id="reg-music" href=""></div>
+        <!--관리 음악설정 링크걸기-->
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <audio width="200" src={% static "아이유-잠 못 드는 밤 비는 내리고.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <audio width="200" src={% static "BIGBANG-꽃 길.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <audio width="200" src={% static "이수 (엠씨 더 맥스)-My Way.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+          <form action="/select_music/?user_name={{request.GET.get}}" method="POST">
+            {% csrf_token %}
+            <select name="music_select" id="music-list">
+              <option value="아이유-잠 못 드는 밤 비는 내리고">아이유-잠 못 드는 밤 비는 내리고</option>
+              <option value="BIGBANG-꽃 길">BIGBANG-꽃 길</option>
+              <option value="이수 (엠씨 더 맥스)-My Way">이수 (엠씨 더 맥스)-My Way</option>
+            </select>
+            <button class="music_submit" type="submit" name="button">확인</button>
+          </form>
+      </aside>
+    </div>
+  </body>
+</html>

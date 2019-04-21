@@ -1,0 +1,397 @@
+<html>
+{% load static %}
+  <head>
+    <title>project <Hello World></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="music_setting.css">
+    <!--
+    <script>
+      function check_all() {
+        for (i=0; i < add_music_form.musiccheckbox.length; i++) {
+          add_music_form.music_check_box[i].checked = true;
+        }
+      }
+    </script>
+  -->
+  <style media="screen">
+      #setting-menu {
+        width: 160px; margin: 0 auto;
+      }
+
+      #setting-menu-header {
+        width: 160px; padding: 20px 0 5px 0;
+        border-bottom-width: thin;
+        border-bottom-style: solid;
+        text-align: center;
+        font-size: 18px;
+        color: lightblue;
+        border-color: #808080;
+      }
+
+      #setting-main-menu {
+        width:160px;
+        height: 330px;
+        margin: 10px 0;
+
+      }
+
+      #setting-menu-title {
+        display: block;
+        font-size: 16px;
+        color: blue;
+        height: 20px;
+        margin: 12px 0;
+      }
+
+      .setting-menu-item {
+        display: block;
+        font-size:15px;
+        color: lightblue;
+        height:20px;
+        margin: 5px 0;
+      }
+
+      #music-setting-list {
+        color: darkblue;
+      }
+
+      #whole-music-setting {
+        width: 500px; margin: 0 auto;
+        margin-top: 30px;
+      }
+
+      #add-music-button-setting {
+        height: 30px;
+      }
+
+      #add-music-button {
+        float: right;
+      }
+
+      #music-list-title {
+          background-color: rgb(240,240,240);
+          font-size: 16px;
+          border-top-style: solid;
+          border-top-width: thin;
+          border-top-color: #808080;
+          border-bottom-style: dotted;
+          border-bottom-width: thin;
+          border-bottom-color: #808080;
+      }
+
+      #check-all {
+        display: inline-block;
+        margin: 5px 0 5px 5px;
+      }
+
+      #num-title {
+        display: inline-block;
+        border-left-style: solid;
+        border-left-width: thin;
+        border-left-color: #808080;
+        border-right-style: solid;
+        border-right-color: #808080;
+        border-right-width: thin;
+        padding: 0 5px;
+        width: 32px;
+      }
+
+      #music-title {
+        display: inline-block;
+        width: 250px;
+        padding: 0 5px;
+      }
+
+      #artist-title {
+        display: inline-block;
+        border-left-style: solid;
+        border-left-width: thin;
+        border-left-color: #808080;
+        padding-left: 5px;
+      }
+
+      .music-list-icon {
+        font-size: 15px;
+        color: rgb(27, 46, 128);
+        border-bottom-style: dashed;
+        border-bottom-width: thin;
+        height: 30px;
+
+      }
+
+      .check-box {
+        margin: 5px;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      .num {
+        width: 32px; height: 25px;
+        text-align: center;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      .music {
+        display: inline-block;
+        padding: 0 0 0 5px;
+        width: 260px;
+        height: 25px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+      }
+
+      .artist {
+        display: inline-block;
+        padding-left: 5px;
+        width: 140px;
+        height: 25px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      #music-delete-button {
+        margin-top: 5px;
+        width: 500px;
+      }
+
+      #delete-music-button {
+        float: right;
+
+      }
+      #page-wrapper {
+        width: 1080px;
+        height: 550px;
+        background-image: url("{% static "background.png" %}");
+      }
+
+      #section {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 300px;
+        width: 870px;
+        height: 525px;
+        border-radius: 20px;
+        float: left;
+        background-image: url("{% static "inner-background.png" %}");
+      }
+
+      #aside {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 895px;
+        margin-right: 10px;
+        width: 170px;
+        height: 240px;
+        background-color: white;
+      }
+
+      #header {
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 770px;
+        height: 20px;
+      }
+      #sub-content {
+        margin-top: 6px;
+        margin-left: 15px;
+        margin-right: 550px;
+        width: 200px;
+        height: 465px;
+        border-radius: 10px;
+        display: block;
+        float: left;
+        background-color: white;
+        position: relative;
+      }
+
+      #article {
+        position: absolute;
+        margin-top: 6px;
+        margin-left: 230px;
+        margin-right: 150px;
+        width: 550px;
+        height: 465px;
+        border-radius: 10px;
+        float: left;
+        background-color: white;
+      }
+
+      #main-navigation {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 785px;
+        margin-right: 10px;
+        width: 70px;
+        height: 246px;
+        background-image: url("{% static "navi.png" %}");
+      }
+
+      .menu-item {
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        line-height: 40px;
+        margin: 0px;
+        height: 40px;
+        border: solid 0.5px;
+        border-color: #fff5d5;
+        display: block;
+      }
+
+      #music-image {
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+      }
+
+      #music-list {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 215px;
+        width: 100px;
+      }
+
+      #music {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 170px;
+        width: 145px;
+        border: solid;
+      }
+
+      a {
+        text-decoration: none;
+        border-radius: 0px 5px 5px 0px;
+      }
+      .today {
+        margin-top: 10px;
+        margin-left: 45px;
+        width: 110px;
+        height: 12px;
+        text-align: center;
+        font-size: 10px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: gray;
+        position: absolute;
+      }
+
+      .today>p {
+        display: inline;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .logout {
+        float: right;
+        height: 18px;
+        margin-top: 1px;
+        margin-right: 4px;
+        font-size: 7px;
+        font-family: 돋움;
+      }
+
+      .nickname {
+        float: left;
+        padding-left: 220px;
+        width: 360px;
+        height: 20px;
+      }
+
+      .nickname>h2 {
+        display: inline;
+        font-size: 16px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: #113377;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <section id="section">
+        <header id="header">
+          <div class="today">
+          <a href="/home/?user_name={{request.user.username}}">HOME</a>
+        </div>
+          <form action="/logout/" method="POST">
+            {% csrf_token %}
+              <input type="hidden" name="">
+              <button class="logout" type="submit" name="">로그아웃</button>
+            </form>
+          <div class="nickname">
+            <h2>{{request.GET.user_name}}님의 미니홈피</h2>
+          </div>
+        </header>
+        <div id="sub-content">
+          <div id=setting-menu>
+            <div id=setting-menu-header>MANAGER</div>
+            <div id="setting-main-menu">
+              <div id="setting-menu-title"><img src="https://placehold.it/18x18" class="setting-overview-icon"/>미니홈피 관리</div>
+              <a href="/setting/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="home-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>홈 설정</a>
+              <a href="/basic_info/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="basic-information-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>기본정보</a>
+              <a href="/music_setting/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="music-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>음악 설정</a>
+            </div>
+          </div>
+        </div>
+        <article id="article">
+          <div id="whole-music-setting">
+            <div id="add-music-button-setting"><input type="button" name="add-music" id="add-music-button" value="배경음악 등록"></div>
+            <div id="music-list-setting">
+              <div id="music-list-title">
+                <div id="check-all"><input type="checkbox" name="check-all-box" value="check-all" id="check-all-button"></div>
+                <div id="num-title">번호</div>
+                <div id="music-title">곡명</div>
+                <div id="artist-title">아티스트</div>
+              </div>
+              <form method="post" name="add_music_form">
+                <div class="music-list-icon">
+                  <label>
+                    <div class="check-box"><input type="checkbox" name="musiccheckbox" value="music-checked" class="check-box-icon"/></div>
+                    <div class="num">1</div>
+                    <div class="music">Tears</div>
+                    <div class="artist">소찬휘</div>
+                  </label>
+                </div>
+                <div class="music-list-icon">
+                  <label>
+                    <div class="check-box"><input type="checkbox" name="musiccheckbox" value="music-checked" class="check-box-icon"/></div>
+                    <div class="num">2</div>
+                    <div class="music">My Way</div>
+                    <div class="artist">이수</div>
+                  </label>
+                </div>
+                <div id="music-delete-button">
+                  <input type="button" name="delete-music" value="삭제" id="delete-music-button">
+                </div>
+              </form>
+            </div>
+          </div>
+        </article>
+        <nav id="main-navigation">
+            <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+            <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+            <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+            <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+            <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+            <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+            </nav>
+      </section>
+      <aside id="aside">
+        <img src="https://placehold.it/150x150" id="music-image">
+        <div id="reg-music" href=""></div> <!--관리 음악설정 링크걸기-->
+        <audio src="" id="music"></audio>
+        <select id="music-list">
+          <option value="">음악 목록</option>
+        </select>
+      </aside>
+    </div>
+  </body>
+</html>

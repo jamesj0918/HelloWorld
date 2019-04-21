@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <title>project <Hello World></title>
+      <style media="screen">
+      .music_submit
+      {
+        position: absolute;
+        margin-top: 210px;
+        margin-left: 120px;
+      }
+      #page-wrapper {
+        width: 1080px;
+        height: 550px;
+        background-image: url("{% static "background.png" %}");
+      }
+
+      #section {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 300px;
+        width: 870px;
+        height: 525px;
+        border-radius: 20px;
+        float: left;
+        background-image: url("{% static "inner-background.png" %}");
+      }
+
+      #aside {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 895px;
+        margin-right: 10px;
+        width: 170px;
+        height: 240px;
+        background-color: white;
+      }
+
+      #header {
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 770px;
+        height: 20px;
+      }
+
+      .today {
+        margin-top: 10px;
+        margin-left: 45px;
+        width: 110px;
+        height: 12px;
+        text-align: center;
+        font-size: 10px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: gray;
+        position: absolute;
+      }
+
+      .today>p {
+        display: inline;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .logout {
+        float: right;
+        height: 18px;
+        margin-top: 1px;
+        margin-right: 4px;
+        font-size: 7px;
+        font-family: 돋움;
+      }
+
+      .nickname {
+        float: left;
+        padding-left: 220px;
+        width: 360px;
+        height: 20px;
+      }
+
+      .nickname>h2 {
+        display: inline;
+        font-size: 16px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: #113377;
+      }
+
+      #sub-content {
+        margin-top: 6px;
+        margin-left: 15px;
+        margin-right: 550px;
+        width: 200px;
+        height: 465px;
+        border-radius: 10px;
+        display: block;
+        float: left;
+        background-color: white;
+        position: relative;
+      }
+
+      #article {
+        position: absolute;
+        margin-top: 6px;
+        margin-left: 230px;
+        margin-right: 150px;
+        width: 550px;
+        height: 465px;
+        border-radius: 10px;
+        float: left;
+        background-color: white;
+      }
+
+      #main-navigation {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 785px;
+        margin-right: 10px;
+        width: 70px;
+        height: 246px;
+        background-image: url("{% static "navi.png" %}");
+      }
+
+      .menu-item {
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        line-height: 40px;
+        margin: 0px;
+        height: 40px;
+        border: solid 0.5px;
+        border-color: #fff5d5;
+        display: block;
+      }
+
+      #music-image {
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+      }
+
+      #music-list {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 215px;
+        width: 100px;
+      }
+
+      #music {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 170px;
+        width: 145px;
+        border: solid;
+      }
+
+      a {
+        text-decoration: none;
+        border-radius: 0px 5px 5px 0px;
+      }
+      #setting-menu {
+        width: 160px; margin: 0 auto;
+      }
+
+      #setting-menu-header {
+        width: 160px; padding: 20px 0 5px 0;
+        border-bottom-width: thin;
+        border-bottom-style: solid;
+        text-align: center;
+        font-size: 18px;
+        color: lightblue;
+        border-color: #808080;
+      }
+
+      #setting-main-menu {
+        width:160px;
+        height: 330px;
+        margin: 10px 0;
+
+      }
+
+      #setting-menu-title {
+        display: block;
+        font-size: 16px;
+        color: blue;
+        height: 20px;
+        margin: 12px 0;
+      }
+
+      .setting-menu-item {
+        display: block;
+        font-size:15px;
+        color: lightblue;
+        height:20px;
+        margin: 5px 0;
+      }
+
+      #home-setting-list {
+        color: darkblue;
+      }
+
+      .whole-home-setting {
+          width: 500px; margin: 0 auto;
+          margin-top: 30px;
+      }
+
+      .new-nickname-title {
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+
+      .input-new-nickname-setting {
+        border-top-style: solid;
+        border-top-width: thin;
+        border-top-color: #808080;
+        border-bottom-style: solid;
+        border-bottom-width: thin;
+        border-bottom-color: #808080;
+        background-color: rgb(245,245,245);
+      }
+
+      .input-new-nickname {
+        height: 18px; width: 370px;
+        margin:10px;
+      }
+
+      #nickname-setting-button {
+        display: inline-block;
+        margin-top:10px;
+        float: right;
+        margin-right: 10px;
+      }
+      .submit-new-nickname-button {
+        height: 24px;
+        font-size: 12px;
+        margin-right: 5px;
+      }
+
+      .cancel-new-nickname-button {
+        font-size: 12px;
+        height: 24px;
+      }
+
+      .new-self-introduction {
+        margin-top:30px;
+      }
+
+      .new-self-introduction-title {
+        margin-bottom: 5px;
+        font-size: 16px;
+      }
+
+      .input-new-self-introduction-setting {
+        border-top-style: solid;
+        border-top-width: thin;
+        border-top-color: #808080;
+        border-bottom-style: solid;
+        border-bottom-width: thin;
+        border-bottom-color: #808080;
+        background-color: rgb(245,245,245);
+        height: 87px;
+      }
+
+      .input-new-self-introduction {
+        width: 420px;
+        height: 60px;
+        resize: none;
+        margin: 10px;
+        float:left;
+      }
+
+      .submit-new-self-introduction-button {
+        margin-top: 10px;
+        height: 24px;
+        font-size: 12px;
+      }
+
+      .cancel-new-self-introduction-button {
+        font-size: 12px;
+        height: 24px;
+        margin-top: 18px;
+      }
+
+      .new-profile-picture {
+        margin-top: 30px;
+      }
+
+      .new-profile-picture-title {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .input-new-profile-picture-setting {
+        border-top-style: solid;
+        border-top-width: thin;
+        border-top-color: #808080;
+        border-bottom-style: solid;
+        border-bottom-width: thin;
+        border-bottom-color: #808080;
+        background-color: rgb(245,245,245);
+        height: 120px; width: 415px;
+
+      }
+
+      .view-new-profile-picture {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        float: left;
+        margin-right: 20px;
+      }
+
+      .find-new-profile-picture-button {
+        display: inline;
+        position: absolute;
+        margin-top: 10px;
+        margin-bottom: 14px;
+        font-size: 12px;
+        height: 24px;
+        float: left;
+      }
+
+      .submit-new-profile-picture-button {
+        margin-top: 80px;
+        font-size: 12px;
+        height: 24px;
+
+      }
+
+      .cancel-new-profile-picture-button {
+        margin-top: 14px;
+        font-size: 12px;
+        height: 24px; width: 43px;
+      }
+
+      </style>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <section id="section">
+        <header id="header">
+          <div class="today">
+          <a href="/home/?user_name={{request.user.username}}">HOME</a>
+        </div>
+          <form action="/logout/" method="POST">
+            {% csrf_token %}
+              <input type="hidden" name="">
+              <button class="logout" type="submit" name="">로그아웃</button><!--로그아웃버튼-->
+            </form>
+          <div class="nickname">
+            <h2>{{request.GET.user_name}}님의 미니홈피</h2><!--미니홈피이름-->
+          </div>
+        </header>
+        <div id="sub-content">
+          <div id=setting-menu>
+            <div id=setting-menu-header>MANAGER</div>
+            <div id="setting-main-menu"><!--관리 메뉴-->
+              <div id="setting-menu-title"><img src="https://placehold.it/18x18" class="setting-overview-icon"/>미니홈피 관리</div>
+              <a href="/setting/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="home-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>홈 설정</a>
+              <a href="/basic_info/?user_name={{request.GET.user_name}}" class="setting-menu-item" id="basic-information-setting-list"><img src="https://placehold.it/15x15" class="setting-menu-item-icon"/>기본정보</a>
+              </div>
+          </div>
+        </div>
+        <article id="article">
+          <div class="whole-home-setting">
+            <div class="new-nickname"><!--새로운 닉네임 설정-->
+              <div class="new-nickname-title"><img src="https://placehold.it/10x10" class="home-setting-list-icon">한줄 소개 </div>
+              <div class="input-new-nickname-setting">
+                <form method="POST" action="/add_line_intro/">
+                  {% csrf_token %}
+                  <input type="text" name="line_intro" class="input-new-nickname"/><!--새로운 닉네임 작성-->
+                  <div id="nickname-setting-button">
+                    <input type="submit" name="submit-new-nickname" value="확인" class="submit-new-nickname-button"/><!--새로운 닉네임 등록-->
+                    <input type="reset" name="cancel-input-new-nickname" value="취소" class="cancel-new-nickname-button"/><!--등록 취소-->
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="new-self-introduction"><!--자기 소개 설정-->
+              <div class="new-self-introduction-title"><img src="https://placehold.it/10x10" class="home-setting-list-icon">프로필 자기 소개</div>
+              <div class="input-new-self-introduction-setting">
+                <form method="POST" action="/add_self_intro/">
+                  {% csrf_token %}
+                  <textarea name="self_intro" rows="4" cols="num" class="input-new-self-introduction"></textarea><!--자기 소개 작선란-->
+                  <input type="submit" name="submit-new-nickname" value="확인" class="submit-new-self-introduction-button"/><!--새로운 자기소개 등록-->
+                  <input type="reset" name="cancel-input-new-nickname" value="취소" class="cancel-new-self-introduction-button"/><!--등록 취소-->
+                </form>
+              </div>
+            </div>
+            <div class="new-profile-picture"><!--프로파일 사진 설정-->
+              <div class="new-profile-picture-title"><img src="https://placehold.it/10x10" class="home-setting-list-icon">프로필 사진 설정</div>
+              <div class="input-new-profile-picture-setting">
+
+                <form method="POST" enctype="multipart/form-data" action="/add_profile_img/">
+                  <img src="/media/{{member_data.profile_img}}" class="view-new-profile-picture"/><!--프로파일 사진 표시-->
+                  {% csrf_token %}
+                  <input type="file" name="profile_img" class="find-new-profile-picture-button"/><!--새로운 사진 찾기 버튼-->
+                  <input type="submit" name="submit-new-profile-picture" value="확인" class="submit-new-profile-picture-button"/><!--새로운 프로필 사진 등록-->
+                  <input type="reset" name="cancel-input-new-profile-picture-setting" value="취소" class="cancel-new-profile-picture-button"/><!--취소 버튼-->
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </article>
+        <nav id="main-navigation"><!--메뉴창-->
+          <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+          <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+          <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+          <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+          <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+          <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+        </nav>
+      </section>
+      <aside id="aside">
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <img id="music-image" width="150px" height="150px" src="{% static "아이유-잠못드는밤.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "빅뱅-꽃길.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "이수-My Way.jpg" %}" alt="">
+        {% endif %}
+        <div id="reg-music" href=""></div>
+        <!--관리 음악설정 링크걸기-->
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <audio width="200" src={% static "아이유-잠 못 드는 밤 비는 내리고.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <audio width="200" src={% static "BIGBANG-꽃 길.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <audio width="200" src={% static "이수 (엠씨 더 맥스)-My Way.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+          <form action="/select_music/?user_name={{request.GET.get}}" method="POST">
+            {% csrf_token %}
+            <select name="music_select" id="music-list">
+              <option value="아이유-잠 못 드는 밤 비는 내리고">아이유-잠 못 드는 밤 비는 내리고</option>
+              <option value="BIGBANG-꽃 길">BIGBANG-꽃 길</option>
+              <option value="이수 (엠씨 더 맥스)-My Way">이수 (엠씨 더 맥스)-My Way</option>
+            </select>
+            <button class="music_submit" type="submit" name="button">확인</button>
+          </form>
+      </aside>
+    </div>
+  </body>
+</html>

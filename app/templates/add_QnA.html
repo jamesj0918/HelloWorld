@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <title>project
+    <Hello World>
+  </title>
+
+  <style media="screen">
+  .music_submit
+  {
+    position: absolute;
+    margin-top: 210px;
+    margin-left: 120px;
+  }
+
+      #page-wrapper {
+        width: 1080px;
+        height: 550px;
+        background-image: url("{% static "background.png" %}");
+      }
+
+      #section {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 300px;
+        width: 870px;
+        height: 525px;
+        border-radius: 20px;
+        float: left;
+        background-image: url("{% static "inner-background.png" %}");
+      }
+
+      #aside {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 895px;
+        margin-right: 10px;
+        width: 170px;
+        height: 240px;
+        background-color: white;
+      }
+
+      #header {
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 770px;
+        height: 20px;
+      }
+
+      .today {
+        margin-top: 10px;
+        margin-left: 45px;
+        width: 110px;
+        height: 12px;
+        text-align: center;
+        font-size: 10px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: gray;
+        position: absolute;
+      }
+
+      .today>p {
+        display: inline;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .logout {
+        float: right;
+        height: 18px;
+        margin-top: 1px;
+        margin-right: 4px;
+        font-size: 7px;
+        font-family: 돋움;
+      }
+
+      .nickname {
+        float: left;
+        padding-left: 220px;
+        width: 360px;
+        height: 20px;
+      }
+
+      .nickname>h2 {
+        display: inline;
+        font-size: 16px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: #113377;
+      }
+
+      #sub-content {
+        margin-top: 6px;
+        margin-left: 15px;
+        margin-right: 550px;
+        width: 200px;
+        height: 465px;
+        border-radius: 10px;
+        display: block;
+        float: left;
+        background-color: white;
+        position: relative;
+      }
+
+      #article {
+        position: absolute;
+        margin-top: 6px;
+        margin-left: 230px;
+        margin-right: 150px;
+        width: 550px;
+        height: 465px;
+        border-radius: 10px;
+        float: left;
+        background-color: white;
+        overflow: scroll;
+      }
+
+      #main-navigation {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 785px;
+        margin-right: 10px;
+        width: 70px;
+        height: 246px;
+        background-image: url("{% static "navi.png" %}");
+      }
+
+      .menu-item {
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        line-height: 40px;
+        margin: 0px;
+        height: 40px;
+        border: solid 0.5px;
+        border-color: #fff5d5;
+        display: block;
+      }
+
+      #music-image {
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+      }
+
+      #music-list {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 215px;
+        width: 100px;
+      }
+
+      #music {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 170px;
+        width: 145px;
+        border: solid;
+      }
+
+      a {
+        text-decoration: none;
+        border-radius: 0px 5px 5px 0px;
+      }
+
+
+    #profile-posts {
+      width: 500px;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    #number-img {
+      float: left;
+      margin-right: 10px;
+    }
+
+    #posts-article {
+      width: 400px;
+      margin: 0 auto;
+      padding: 50px 0;
+    }
+
+    #exist-question {
+      width: 500px;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    #keyword {
+      width: 500px;
+      margin: 0 auto;
+      padding: 30px 0;
+    }
+
+    #profile-img {
+      width: 150px;
+      margin: 0 auto;
+      height: 150px;
+      /*border: solid;*/
+      padding: 20px 0;
+    }
+
+    #album-list {
+      width: 160px;
+      margin: 0 auto;
+    }
+
+    #album-header {
+      width: 160px;
+      padding: 20px 0 5px 0;
+      border-bottom-width: thin;
+      border-bottom-style: solid;
+      text-align: center;
+      font-size: 18px;
+      color: lightblue;
+      border-color: #808080;
+    }
+
+    #album-main-list {
+      width: 160px;
+      height: 330px;
+      margin: 10px 0;
+      overflow-y: scroll;
+    }
+
+    #album-main-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .overview {
+      display: block;
+      font-size: 16px;
+      color: blue;
+      height: 20px;
+      margin: 12px 0;
+    }
+
+    .overview:focus {
+      color: darkblue;
+    }
+
+    .album-list-item {
+      display: block;
+      font-size: 15px;
+      color: lightblue;
+      height: 20px;
+      margin: 5px 0;
+    }
+
+    .album-list-item:focus {
+      color: darkblue;
+    }
+
+    #folder-manager {
+      background-color: rgb(255, 162, 0);
+      height: 64px;
+      border-radius: 0 0 5px 5px;
+    }
+
+    #folder-manager-button {
+      width: 130px;
+      margin: 0 auto;
+      height: 40px;
+      padding-top: 12px;
+    }
+
+    #folder-setting {
+      width: 500px;
+      margin: 0 auto;
+      margin-top: 80px;
+    }
+
+    #folder-setting-title {
+      width: 500px;
+      height: 30px;
+      font-size: 20px;
+      border-bottom-style: solid;
+      border-bottom-width: thin;
+      border-bottom-color: #808080;
+    }
+
+    #folder-setting-content {
+      width: 500px;
+    }
+
+    #folder-setting-left {
+      float: left;
+      width: 250px;
+    }
+
+    #folder-list {
+      width: 250px;
+      height: 100px;
+
+    }
+    div.question-main-content {
+  font-weight: bold;
+  color: #1245AB;
+}
+
+div.box {
+  background-color: #F6F6F6;
+  border-width: thick;
+  border: 3px solid lightblue;
+  width: 450px;
+  height: 40px;
+  margin: 0px;
+  padding: 5px;
+  line-height: 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.input_answer
+{
+  width: 445px;
+  height: 35px;
+}
+.submit_QnA
+{
+  position: absolute;
+  margin-left: 420px;
+}
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <section id="section">
+      <header id="header">
+        <div class="today">
+        <a href="/home/?user_name={{request.user.username}}">HOME</a>
+      </div>
+        <form action="/logout/" method="POST">
+          {% csrf_token %}
+            <input type="hidden" name="">
+            <button class="logout" type="submit" name="">로그아웃</button>
+          </form>
+        <div class="nickname">
+          <h2>{{request.GET.user_name}}</h2>
+        </div>
+      </header>
+      <div id="sub-content">
+        <div id=album-list>
+          <div id=album-header>PROFILE</div>
+          <div id="album-main-list">
+            <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="album-list-item"><img src="https://placehold.it/15x15" class="album-list-item-icon"/>내 소개</a>
+            <a href="/profile_key/?user_name={{request.GET.user_name}}" class="album-list-item"><img src="https://placehold.it/15x15" class="album-list-item-icon"/>키워드</a>
+            <a href="/profile_QnA/?user_name={{request.GET.user_name}}" class="album-list-item"><img src="https://placehold.it/15x15" class="album-list-item-icon"/>10문답</a>
+            <a href="/profile_info/?user_name={{request.GET.user_name}}" class="album-list-item"><img src="https://placehold.it/15x15" class="album-list-item-icon"/>기본정보</a>
+          </div>
+        </div>
+        <div id="folder-manager">
+
+          <!--폴더 관리 버튼 사진-->
+        </div>
+      </div>
+      <article id="article">
+        <div id="exist-question">
+          <form action="/submit_QnA/" method="post">
+            {%csrf_token%}
+
+            <button class="submit_QnA" type="submit" name="button">확인</button>
+          <div class="question-content">
+            <div id="number-img"><img src="{% static "1번문답.png" %}" alt="1번문답" width="40" /></div>
+            <div class="question-main-content">나의 좌우명은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a1" value="{{member_data.A1}}">
+              </div>
+            </div>
+            <div id="number-img">
+              <img src="{% static "2번문답.png" %}" alt="2번문답" width="40" />
+            </div>
+            <div class="question-main-content">나의 애창곡은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a2" value="{{member_data.A2}}">
+              </div>
+              <div id="number-img"><img src="{% static "3번문답.png" %}" alt="3번문답" width="40" /></div>
+            </div>
+            <div class="question-main-content">나의 장점은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a3" value="{{member_data.A3}}">
+              </div>
+              <div id="number-img"><img src="{% static "4번문답.png" %}" alt="4번문답" width="40" /></div>
+            </div>
+            <div class="question-main-content"> 나의 주량은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a4" value="{{member_data.A4}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "5번문답.jpg" %}" alt="5번문답" width="40" /></div>
+            <div class="question-main-content">나의 별명은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a5" value="{{member_data.A5}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "6번문답.jpg" %}" alt="6번문답" width="40" /></div>
+            <div class="question-main-content">나의 성격은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a6" value="{{member_data.A6}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "7번문답.jpg" %}" alt="7번문답" width="40" /></div>
+            <div class="question-main-content">꼭 만나보고 싶은 스타는?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a7" value="{{member_data.A7}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "8번문답.jpg" %}" alt="8번문답" width="40" /></div>
+            <div class="question-main-content">가장 기뻤던 기억은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a8" value="{{member_data.A8}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "9번문답.jpg" %}" alt="9번문답" width="40" /></div>
+            <div class="question-main-content">좋아하는 음식은?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a9" value="{{member_data.A9}}">
+              </div>
+            </div>
+            <div id="number-img"><img src="{% static "10번문답.png" %}" alt="10번문답" width="40" /></div>
+            <div class="question-main-content">마지막으로 하고싶은 말?
+            </div>
+            <div class="answer-content">
+              <div class="box">
+                <input class="input_answer" type="text" name="a10" value="{{member_data.A10}}">
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </article>
+      <nav id="main-navigation">
+        <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+        <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+        <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+        <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+        <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+        <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+      </nav>
+    </section>
+    <aside id="aside">
+      {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+      <img id="music-image" width="150px" height="150px" src="{% static "아이유-잠못드는밤.jpg" %}" alt="">
+      {% endif %}
+      {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+      <img id="music-image" width="150px" height="150px" src="{% static "빅뱅-꽃길.jpg" %}" alt="">
+      {% endif %}
+      {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+      <img id="music-image" width="150px" height="150px" src="{% static "이수-My Way.jpg" %}" alt="">
+      {% endif %}
+      <div id="reg-music" href=""></div>
+      <!--관리 음악설정 링크걸기-->
+      {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+      <audio width="200" src={% static "아이유-잠 못 드는 밤 비는 내리고.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+      {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+      <audio width="200" src={% static "BIGBANG-꽃 길.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+      {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+      <audio width="200" src={% static "이수 (엠씨 더 맥스)-My Way.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+        <form action="/select_music/?user_name={{request.GET.get}}" method="POST">
+          {% csrf_token %}
+          <select name="music_select" id="music-list">
+            <option value="아이유-잠 못 드는 밤 비는 내리고">아이유-잠 못 드는 밤 비는 내리고</option>
+            <option value="BIGBANG-꽃 길">BIGBANG-꽃 길</option>
+            <option value="이수 (엠씨 더 맥스)-My Way">이수 (엠씨 더 맥스)-My Way</option>
+          </select>
+          <button class="music_submit" type="submit" name="button">확인</button>
+        </form>
+    </aside>
+  </div>
+</body>
+
+</html>

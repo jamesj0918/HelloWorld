@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <title>project <Hello World></title>
+      <style media="screen">
+
+      .music_submit
+      {
+        position: absolute;
+        margin-top: 210px;
+        margin-left: 120px;
+      }
+      #profile-img {
+        margin-top: 20px;
+        margin-left: 23px;
+        width: 150px;
+      }
+
+      #profile-introduction {
+        width: 150px;
+        margin-top: 10px;
+        margin-left: 23px;
+        text-align: center;
+        font-size: 12px;
+      }
+
+
+      #article {
+        overflow-y: scroll;
+      }
+      #article::-webkit-scrollbar {
+        display: none;
+      }
+      #new-guestbook {
+        background-color: #EAEAEA;
+        width: 500px; height: 120px; margin: 0 auto;
+        margin-top: 30px;
+        border-radius: 5px;
+      }
+
+      #newwriter-profile-img {
+        float: left;
+        margin-top: 12.5px; margin-left: 10px;
+        width: 95px; height: 95px;
+      }
+      .delete-button {
+          float: right;
+          height: 20px;
+          margin-top: 5px; margin-right: 4px;
+          font-size: 10px;
+      }
+      .input-new-guestbook {
+        float: left;
+        width: 380px; height: 70px;
+        margin-left: 7px; margin-top: 12.5px;
+        /*border: solid;*/
+      }
+
+      .submit-new-guestbook {
+        float: right;
+        height: 20px;
+        margin-top: 5px; margin-right: 4px;
+        font-size: 10px;
+      }
+      .exist-guestbook {
+        background-color: white;
+        width: 500px; margin: 0 auto;
+        margin-top: 30px;
+
+      }
+
+      .writer-profile {
+        background-color: #EAEAEA;
+        height: 30px;
+      }
+
+      .guestbook-order {
+        float: left;
+        font-size: 10px;
+        margin: 7px;
+      }
+
+      .writer-name {
+        float: left;
+        font-size: 15px;
+        margin: 4.5px 10px;
+      }
+
+      .writer-home {
+        float: left;
+        width: 20px; height: 20px;
+        margin: 5px;
+      }
+
+      .writing-time {
+        float: left;
+        font-size: 10px;
+        color: #808080;
+        margin: 7px;
+      }
+
+      .guestbook-content {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 120px;
+      }
+
+      .writer-profile-img {
+        float: left;
+        margin: 15px 10px;
+        height: 100px; width: 100px;
+
+      }
+
+      .guestbook-main-content {
+          float: left;
+          width: 370px;
+          margin: 5px;
+          font-size: 15px;
+      }
+
+      .guestbook-comment {
+        background-color: #EAEAEA;
+      }
+
+      .exist-guestbook-comment {
+        padding: 10px 15px;
+      }
+      .exist-guestbook-comment-writer{
+        display: inline-block;
+        font-size: 15px;
+      }
+
+      .exist-guestbook-comment-content {
+        font-size: 15px;
+        margin-left: 0px;
+        display: inline-block;
+      }
+
+      .exist-guestbook-comment-time {
+        display: inline;
+        font-size: 10px;
+        color: #808080;
+      }
+
+      #new-guestbook-comment {
+        width: 480px; margin: 0 auto;
+        padding: 10px 0;
+      }
+
+      .input-new-guestbook-comment {
+        width: 430px; height: 30px;
+        margin: 0;
+      }
+
+      .submit-new-guestbook-comment {
+        height: 35px;
+        float: right;
+        margin: 0;
+      }
+
+      #page-wrapper {
+        width: 1080px;
+        height: 550px;
+        background-image: url("{% static "background.png" %}");
+      }
+
+      #section {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 300px;
+        width: 870px;
+        height: 525px;
+        border-radius: 20px;
+        float: left;
+        background-image: url("{% static "inner-background.png" %}");
+      }
+      #aside
+      {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 895px;
+        margin-right : 10px;
+        width: 170px;
+        height: 240px;
+        background-color: white;
+      }
+      #header
+      {
+        margin-top: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 770px;
+        height: 20px;
+      }
+      .today {
+        margin-top: 10px;
+        margin-left: 45px;
+        width: 110px;
+        height: 12px;
+        text-align: center;
+        font-size: 10px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: gray;
+        position: absolute;
+      }
+      .today>p {
+        display: inline;
+      }
+      .red {
+        color: red;
+      }
+      .logout {
+        float: right;
+        height: 18px;
+        margin-top: 1px;
+        margin-right: 4px;
+        font-size: 7px;
+        font-family: 돋움;
+      }
+      .nickname {
+        float: left;
+        padding-left: 220px;
+        width: 360px;
+        height: 20px;
+      }
+      .nickname>h2 {
+        display: inline;
+        font-size: 16px;
+        font-family: 돋움;
+        font-weight: 900;
+        color: #113377;
+      }
+      #sub-content
+      {
+        margin-top: 6px;
+        margin-left: 15px;
+        margin-right: 550px;
+        width: 200px;
+        height: 465px;
+        border-radius: 10px;
+        display: block;
+        float: left;
+        background-color: white;
+        position: relative;
+      }
+      #article
+      {
+        position: absolute;
+        margin-top: 6px;
+        margin-left: 230px;
+        margin-right: 150px;
+        width: 550px;
+        height: 465px;
+        border-radius: 10px;
+        float: left;
+        background-color: white;
+        font-size: 12px;
+        font-family: 돋움;
+        font-weight: 400;
+      }
+      #main-navigation {
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 785px;
+        margin-right: 10px;
+        width: 70px;
+        height: 246px;
+        background-image: url("{% static "navi.png" %}");
+      }
+
+      .menu-item
+      {
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        line-height: 40px;
+        margin: 0px;
+        height: 40px;
+        border: solid 0.5px ;
+        border-color: #fff5d5;
+        display: block;
+      }
+      #music-image
+      {
+        margin-left: 10px;
+        margin-top: 10px;
+        position: absolute;
+      }
+      #music-list
+      {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 215px;
+        width: 100px;
+      }
+      #music
+      {
+        margin-left: 10px;
+        position: absolute;
+        margin-top: 170px;
+        width: 145px;
+        border: solid;
+      }
+      a
+      {
+        text-decoration: none;
+        border-radius: 0px 5px 5px 0px;
+      }
+      </style>
+  </head>
+  <body>
+
+    <div id="page-wrapper">
+      <section id="section">
+        <header id="header">
+          <div class="today">
+          <a href="/home/?user_name={{request.user.username}}">HOME</a>
+        </div>
+          <form action="/logout/" method="POST">
+            {% csrf_token %}
+              <input type="hidden" name="">
+              <button class="logout" type="submit" name="">로그아웃</button>
+            </form>
+          <div class="nickname">
+            <h2>{{request.GET.user_name}}님의 미니홈피</h2>
+          </div>
+        </header>
+        <div id="sub-content">
+          <div id=profile-img><img width = 150px; height = 150px; src="/media/{{writer_data.profile_img}}"></div><!--프로팔 사진-->
+
+          <div id=profile-introduction>자기소개가 없습니다.</div><!--자기소개-->
+        </div>
+        <article id="article">
+          <div id="new-guestbook"><!--새로운 방명록을 입력하는곳-->
+            <form action="/guestbook/?user_name={{request.GET.user_name}}" method="POST">
+              {% csrf_token %}
+              <img src="/media/{{writer_data.profile_img}}" id="newwriter-profile-img"/><!--방명록 작성자의 프로필 사진-->
+              <input type="text" class="input-new-guestbook" name="guest_book_text"><!--방명록 작성-->
+              <input type="hidden" name="writer_profile_img" value="{{request.user.profile_img}}">
+              <button type="submit" class="submit-new-guestbook">확인</button><!--방명록 제출-->
+            </form>
+          </div>
+          {% for data in guest_article reversed %}
+          {% if data.dest_user == request.GET.user_name %}
+          <div class="exist-guestbook">
+            <div class="writer-profile">
+              <div class="guestbook-order">NO.{{ forloop.counter }} </div><!--몇번째 방명록인지-->
+              <div class="writer-name">{{data.src_user}}</div><!--작성자 닉네임-->
+              <a href="/home/?user_name={{data.src_user}}"><img src="{% static "writer_home.png"%}" class="writer-home"/></a><!--작성자 홈-->
+              <div class="writing-time">{{data.reg_time}}</div><!--작성시간-->
+              <form class="" action="/guestbook_delete/?user_name={{request.GET.user_name}}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="guest_book_text" value="{{data.guest_book_text}}">
+                  <button type="submit" class ="delete-button">삭제</button><!--방명록 삭제 버튼-->
+              </form>
+            </div>
+              <img src="/media/{{data.src_user_profile_img}}" class="writer-profile-img"/><!--작성자 프로필 사진-->
+            <div class="guestbook-content"> {{data.guest_book_text}} </div>
+            <div class="guestbook-comment">
+              <div id="new-guestbook-comment">
+                <form action="/guestcomment/?user_name={{request.GET.user_name}}" name="form" method="POST">
+                  <input type="text" class="input-new-guestbook-comment" name="guest_book_comment"/><!--방명록 댓글 작성-->
+                  {% csrf_token %}
+                  <input type="hidden" name="guest_book_text" value="{{data.guest_book_text}}">
+                  <input type="submit" class="submit-new-guestbook-comment" value="확인"/><!--댓글 등록-->
+                </form>
+              </div>
+
+              {% for i in guest_comment %}
+                {% if data.guest_book_text == i.guest_text %}
+                <form class="" action="/comment_delete/?user_name={{request.GET.user_name}}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="guest_book_comment" value="{{i.guest_book_comment}}">
+                  <button type="submit" class="delete-button" name="button">삭제</button><!--방명록 삭제 버튼-->
+                </form>
+                <div class="exist-guestbook-comment"><!--이미 작성된 방명록 댓글-->
+                  <div class="exist-guestbook-comment-writer">{{i.src_user}}:</div><!--댓글 작성자-->
+                  <div class="exist-guestbook-comment-content">{{i.guest_book_comment}}</div><!--댓글 내용-->
+                  <div class="exist-guestbook-comment-time">{{i.reg_time}}</div><!--댓글 작성 시간-->
+                </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </article>
+        <nav id="main-navigation"><!--메뉴-->
+            <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+            <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+            <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+            <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+            <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+            <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+            </nav>
+      </section>
+
+      <aside id="aside">
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <img id="music-image" width="150px" height="150px" src="{% static "아이유-잠못드는밤.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "빅뱅-꽃길.jpg" %}" alt="">
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <img id="music-image" width="150px" height="150px" src="{% static "이수-My Way.jpg" %}" alt="">
+        {% endif %}
+        <div id="reg-music" href=""></div>
+        <!--관리 음악설정 링크걸기-->
+        {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+        <audio width="200" src={% static "아이유-잠 못 드는 밤 비는 내리고.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+        <audio width="200" src={% static "BIGBANG-꽃 길.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+        {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+        <audio width="200" src={% static "이수 (엠씨 더 맥스)-My Way.mp3"%} id="music" autoplay preload="auto"></audio>
+        {% endif %}
+          <form action="/select_music/?user_name={{request.GET.get}}" method="POST">
+            {% csrf_token %}
+            <select name="music_select" id="music-list">
+              <option value="아이유-잠 못 드는 밤 비는 내리고">아이유-잠 못 드는 밤 비는 내리고</option>
+              <option value="BIGBANG-꽃 길">BIGBANG-꽃 길</option>
+              <option value="이수 (엠씨 더 맥스)-My Way">이수 (엠씨 더 맥스)-My Way</option>
+            </select>
+            <button class="music_submit" type="submit" name="button">확인</button>
+          </form>
+      </aside>
+    </div>
+  </body>
+</html>

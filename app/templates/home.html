@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <title>project
+    <Hello World>
+  </title>
+  <style media="screen">
+    #profile-img {
+      margin-top: 20px;
+      margin-left: 23px;
+      width: 150px;
+    }
+
+    #profile-introduction {
+      width: 150px;
+      margin-top: 10px;
+      margin-left: 23px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    #article-header {
+      background-color: #efefef;
+      margin-top: 30px;
+      margin-left: 32px;
+      width: 480px;
+      height: 410px;
+    }
+
+    #recent-posts {
+      width: 480px;
+      height: 75px;
+    }
+
+    #recent-posts-title {
+      padding-left: 2px;
+      font-size: 17px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: #44b4da;
+      height: 20px;
+    }
+
+    #recent-posts-content {
+      position: absolute;
+      margin-top: 2px;
+      margin-left: 2px;
+      border-color: gray;
+      border-top-style: solid;
+      border-top-width: thin;
+      background-color: white;
+      width: 235px;
+      height: 50px;
+      text-align: center;
+      font-size: 12px;
+      font-family: 돋움;
+      font-weight: 500;
+      color: gray;
+    }
+
+    #chart {
+      margin-top: 2px;
+      margin-left: 2px;
+      width: 465px;
+      height: 46px;
+      background-color: white;
+      border-color: gray;
+      border-top-style: dotted;
+      border-bottom-style: dotted;
+      font-size: 10px;
+      font-family: 돋움;
+      font-weight: 500;
+    }
+
+    .diary-chart {
+      margin-top: 4px;
+      padding-left: 8px;
+      width: 233px;
+      height: 18px;
+    }
+
+    .gallery-chart {
+      padding-top: 4px;
+      padding-left: 8px;
+      width: 457px;
+      height: 18px;
+      border-color: gray;
+      border-top-style: dotted;
+    }
+
+    .number {
+      margin-left: 4px;
+    }
+
+    #miniroom {
+      margin-top: 8px;
+      width: 480px;
+      height: 200px;
+      line-height: 0;
+    }
+
+    #miniroom-header {
+      padding-top: 6px;
+      padding-left: 2px;
+      font-size: 17px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: #44b4da;
+      height: 12px;
+    }
+
+    h6 {
+      display: inline;
+    }
+
+    #miniroom-content {
+      width: 480px;
+      height: 182px;
+    }
+
+    #miniroom-img {
+      border-style: solid;
+      border-width: thin;
+      width: 478px;
+      height: 180px;
+    }
+
+    #friend-mention {
+      margin-top: 7px;
+      width: 480px;
+      height: 120px;
+    }
+
+    #friend-mention-header {
+      padding-left: 2px;
+      font-size: 17px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: #44b4da;
+      height: 20px;
+    }
+
+    #friend-mention-content {
+      margin-left: 2px;
+      width: 475px;
+      height: 96px;
+    }
+
+    .new-f-mention {
+      width: 420px;
+      height: 20px;
+      border-radius: 1px;
+    }
+
+    .submit-new-f-mention {
+      margin-left: 5px;
+      width: 40px;
+      height: 24px;
+      font-size: 12px;
+      font-family: 돋움;
+      font-weight: 500;
+      color: gray;
+    }
+
+    #friend-mention-chart {
+      margin-top: 2px;
+      width: 478px;
+      height: 62px;
+      border-color: gray;
+      border-top-style: dotted;
+    }
+
+    .f-mention {
+      width: 478px;
+      height: 22px;
+      border-color: gray;
+      border-bottom-style: dotted;
+    }
+
+    .f-mention>p {
+      display: inline;
+      font-size: 12px;
+      font-family: 돋움;
+      font-weight: 500;
+      color: gray;
+    }
+
+    #page-wrapper {
+      width: 1080px;
+      height: 550px;
+      background-image: url("{% static "background.png" %}");
+    }
+
+    #section {
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 300px;
+      width: 870px;
+      height: 525px;
+      border-radius: 20px;
+      float: left;
+      background-image: url("{% static "inner-background.png" %}");
+    }
+
+    #aside {
+      position: absolute;
+      margin-top: 10px;
+      margin-left: 895px;
+      margin-right: 10px;
+      width: 170px;
+      height: 240px;
+      background-color: white;
+    }
+
+    #header {
+      margin-top: 12px;
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 770px;
+      height: 20px;
+    }
+
+    .today {
+      margin-top: 10px;
+      margin-left: 45px;
+      width: 110px;
+      height: 12px;
+      text-align: center;
+      font-size: 10px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: gray;
+      position: absolute;
+    }
+
+    .today>p {
+      display: inline;
+    }
+
+    .red {
+      color: red;
+    }
+
+    .logout {
+      float: right;
+      height: 18px;
+      margin-top: 1px;
+      margin-right: 4px;
+      font-size: 7px;
+      font-family: 돋움;
+    }
+
+    .nickname {
+      float: left;
+      padding-left: 220px;
+      width: 360px;
+      height: 20px;
+    }
+
+    .nickname>h2 {
+      display: inline;
+      font-size: 16px;
+      font-family: 돋움;
+      font-weight: 900;
+      color: #113377;
+    }
+
+    #sub-content {
+      margin-top: 6px;
+      margin-left: 15px;
+      margin-right: 550px;
+      width: 200px;
+      height: 465px;
+      border-radius: 10px;
+      display: block;
+      float: left;
+      background-color: white;
+      position: relative;
+    }
+
+    #article {
+      position: absolute;
+      margin-top: 6px;
+      margin-left: 230px;
+      margin-right: 150px;
+      width: 550px;
+      height: 465px;
+      border-radius: 10px;
+      float: left;
+      background-color: white;
+    }
+
+    #main-navigation {
+      position: absolute;
+      margin-top: 30px;
+      margin-left: 785px;
+      margin-right: 10px;
+      width: 70px;
+      height: 246px;
+      background-image: url("{% static "navi.png" %}");
+    }
+
+    .menu-item {
+      margin-left: 0px;
+      margin-right: 0px;
+      text-align: center;
+      line-height: 40px;
+      margin: 0px;
+      height: 40px;
+      border: solid 0.5px;
+      border-color: #fff5d5;
+      display: block;
+    }
+
+    #music-image {
+      margin-left: 10px;
+      margin-top: 10px;
+      position: absolute;
+    }
+
+    #music-list {
+      position: absolute;
+      margin-left: 10px;
+      margin-top: 215px;
+      width: 100px;
+    }
+
+    #music {
+      margin-left: 10px;
+      position: absolute;
+      margin-top: 170px;
+      width: 145px;
+      border: solid;
+    }
+
+    a {
+      text-decoration: none;
+      border-radius: 0px 5px 5px 0px;
+    }
+    .music_submit
+    {
+      position: absolute;
+      margin-top: 210px;
+      margin-left: 120px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <section id="section">
+      <header id="header">
+        <div class="today">
+        <a href="/home/?user_name={{request.user.username}}">HOME</a>
+      </div>
+        <form action="/logout/" method="POST">
+          {% csrf_token %}
+            <input type="hidden" name="">
+            <button class="logout" type="submit" name="">로그아웃</button>
+          </form>
+        <div class="nickname">
+          <h2>{{request.GET.user_name}}님의 미니홈피</h2>
+        </div>
+      </header>
+      <div id="sub-content">
+        <div id=profile-img><img width = 150px; height = 150px; src="/media/{{member_data.profile_img}}">
+          <!--프로필사진-->
+        </div>
+        <div id=profile-introduction>{{member_data.line_intro}}</div>
+        <!--자기소개-->
+      </div>
+      <article id="article">
+        <div id="article-header">
+          <div id="recent-posts">
+            <div id="recent-posts-title">
+              <h6>최근 게시물</h6>
+            </div>
+            <div id="chart">
+              <div class="diary-chart">
+                <a href="/album/?user_name={{request.GET.user_name}}">&nbsp 사진첩  &nbsp &nbsp &nbsp &nbsp {{album_data.album_title}} - {{album_data.album_text}}</a>
+
+              </div>
+              <div class="gallery-chart">
+                <a href="/guestbook/?user_name={{request.GET.user_name}}">&nbsp 방명록  &nbsp &nbsp &nbsp &nbsp {{guestbook_data.src_user}} - {{guestbook_data.guest_book_text}}</a>
+              </div>
+              <div class="third-chart"></div>
+            </div>
+          </div>
+          <div id="miniroom">
+            <div id="miniroom-header">
+              <h6>미니룸</h6>
+            </div>
+            <div id="miniroom-content">
+              <img id="miniroom-img" src={% static "miniroom.png" %} />
+            </div>
+          </div>
+          <div id="friend-mention">
+            <div id="friend-mention-header">
+              <h6>일촌평</h6>
+            </div>
+            <div id="friend-mention-content">
+              <form method="post" action="/add_home_guest/?user_name={{request.GET.user_name}}">
+                {% csrf_token %}
+                <input type="text" name="home_book" class="new-f-mention" />
+                <input type="submit" class="submit-new-f-mention" value="확인" />
+              </form>
+              <div id="friend-mention-chart">
+
+                {% for data in home_data reversed%}
+                {% if forloop.counter < 3 %}
+                <div class="f-mention">
+                  <p>{{data.src_user}} : {{data.home_book}}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav id="main-navigation">
+        <a href="/home/?user_name={{request.GET.user_name}}" class="menu-item">홈</a>
+        <a href="/profile_intro/?user_name={{request.GET.user_name}}" class="menu-item">프로필</a>
+        <a href="/album/?user_name={{request.GET.user_name}}" class="menu-item">사진첩</a>
+        <a href="/guestbook/?user_name={{request.GET.user_name}}" class="menu-item">방명록</a>
+        <a href="/setting/?user_name={{request.GET.user_name}}" class="menu-item">관리</a>
+        <a href="/friend/?user_name={{request.GET.user_name}}" class="menu-item">친구</a>
+      </nav>
+    </section>
+    <aside id="aside">
+      {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+      <img id="music-image" width="150px" height="150px" src="{% static "아이유-잠못드는밤.jpg" %}" alt="">
+      {% endif %}
+      {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+      <img id="music-image" width="150px" height="150px" src="{% static "빅뱅-꽃길.jpg" %}" alt="">
+      {% endif %}
+      {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+      <img id="music-image" width="150px" height="150px" src="{% static "이수-My Way.jpg" %}" alt="">
+      {% endif %}
+      <div id="reg-music" href=""></div>
+      <!--관리 음악설정 링크걸기-->
+      {% if music_data.music_name == '아이유-잠 못 드는 밤 비는 내리고' %}
+      <audio width="200" src={% static "아이유-잠 못 드는 밤 비는 내리고.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+      {% if music_data.music_name == 'BIGBANG-꽃 길'%}
+      <audio width="200" src={% static "BIGBANG-꽃 길.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+      {% if music_data.music_name == '이수 (엠씨 더 맥스)-My Way'%}
+      <audio width="200" src={% static "이수 (엠씨 더 맥스)-My Way.mp3"%} id="music" autoplay preload="auto"></audio>
+      {% endif %}
+        <form action="/select_music/?user_name={{request.GET.get}}" method="POST">
+          {% csrf_token %}
+          <select name="music_select" id="music-list">
+            <option value="아이유-잠 못 드는 밤 비는 내리고">아이유-잠 못 드는 밤 비는 내리고</option>
+            <option value="BIGBANG-꽃 길">BIGBANG-꽃 길</option>
+            <option value="이수 (엠씨 더 맥스)-My Way">이수 (엠씨 더 맥스)-My Way</option>
+          </select>
+          <button class="music_submit" type="submit" name="button">확인</button>
+        </form>
+    </aside>
+  </div>
+</body>
+</html>
